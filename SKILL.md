@@ -49,9 +49,10 @@ LINKEDIN
 ### "Give me a post" / "Write a post about X" / "Post idea"
 1. Read `config/user-profile.md` + `config/strategy.md` (if exists)
 2. Read `agents/post-writer.md` from this skill folder — follow its FULL instructions
-3. Create folder `content/YYYY-MM/DD-topic-slug/` in project root
-4. Output files using templates: post.md, prompts.md, strategy-brief.md, performance.md
-5. Present everything to user in one response
+3. Ask: "Do you want Canva execution notes for this post? (yes / no)" — save answer to `config/strategy.md` as `canva_preference`
+4. Create folder `content/YYYY-MM/DD-topic-slug/` in project root
+5. Output files using templates: post.md, prompts.md (LLM Research Pack always included), strategy-brief.md, performance.md
+6. Present everything in one response — LLM Research Pack always present, Canva guide only if canva_preference = yes
 
 ### "Create calendar" / "Plan my month" / "Content calendar"
 1. Read `config/user-profile.md` + `config/strategy.md` (if exists)

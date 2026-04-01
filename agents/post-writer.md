@@ -6,6 +6,7 @@
 
 - User profile loaded from `config/user-profile.md` (project root)
 - If `config/strategy.md` exists, read it for learned preferences (what works, what doesn't)
+- Check `config/strategy.md` for saved `canva_preference` (yes/no) — use it as default if present
 
 ---
 
@@ -71,10 +72,26 @@ Format rules:
 
 ---
 
+## Step 4.5 — Ask Canva Preference (MANDATORY)
+
+Before generating visuals, ask the user:
+
+> "Do you want Canva execution notes for this post? (yes / no)"
+
+**Rules:**
+- If user says **"yes"** → include full Canva build guide in output and saved file
+- If user says **"no"** → skip Canva section entirely from output and saved file
+- If user gives **no answer / skips** → default to **"yes"**
+- Save the user's answer to `config/strategy.md` under `canva_preference: yes/no`
+- On future posts, use the saved preference as default (but always ask so user can override)
+
+---
+
 ## Step 5 — Visual Production
 
 - Delegate to `agents/visual-generator.md` — read it and follow its full instructions
-- This produces: visual format decision, image style, NotebookLM block, Gemini prompts, Canva guide
+- Pass the Canva preference from Step 4.5 so the visual agent knows whether to include Canva guide
+- This produces: visual format decision, image style, LLM Research Pack, Gemini prompts, and (if yes) Canva guide
 
 ---
 
@@ -100,9 +117,9 @@ Read `templates/post.md` from skill folder. Fill all placeholders:
 
 ### B) `prompts.md`
 Read `templates/prompts.md` from skill folder. Fill all placeholders:
-- NotebookLM block (paste content, search type, query, prompt)
+- LLM Research Pack (all 3 sections — always present)
 - Gemini image prompts (2-3 detailed prompts)
-- Canva build guide (template, dimensions, layout, colors, fonts, image placement)
+- Canva build guide (only if canva_preference = yes)
 
 ### C) `strategy-brief.md`
 Read `templates/strategy-brief.md` from skill folder. Fill all placeholders:
@@ -124,9 +141,12 @@ Present in one response:
 
 1. **The LinkedIn Post** (formatted, ready to copy)
 2. **Strategy Brief** summary
-3. **NotebookLM Instructions** (paste content + search type + query + prompt)
+3. **LLM Research Pack** (all 3 items — always included, no exceptions)
+   - Search Query (fully detailed)
+   - Slide Deck Prompt (fully detailed)
+   - Infographic Prompt (fully detailed)
 4. **Gemini Image Prompts** (2-3 detailed prompts)
-5. **Canva Build Guide** (template, dimensions, layout, colors, fonts)
+5. **Canva Build Guide** ← only if canva_preference = yes
 6. **Post Score** with breakdown (X/50)
 7. Note: "Files saved to `content/YYYY-MM/DD-topic-slug/`"
 8. Reminder: "Fill `performance.md` after publishing with your metrics at 1d, 7d, 30d"
