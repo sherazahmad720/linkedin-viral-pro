@@ -3,14 +3,71 @@ date: {{YYYY-MM-DD}}
 topic: {{topic}}
 visual_format: {{format}}
 image_style: {{style}}
-canva_included: {{yes|no}}
+visual_mode: {{A|B|C|A+B|A+C|B+C|A+B+C}}
 ---
 
 # Visual Production Prompts
 
 ---
 
-## LLM Research Pack
+## Mode A — Ready-to-Upload Gemini Prompts
+
+<!-- Present only if visual_mode includes A -->
+
+> These prompts generate complete images WITH text rendered in — download from Gemini and upload directly to LinkedIn. No Canva needed.
+
+**Image 1 (Primary):**
+{{mode_a_prompt_1}}
+
+**Image 2 (Variant):**
+{{mode_a_prompt_2}}
+
+**Image 3 (Optional — different style):**
+{{mode_a_prompt_3}}
+
+**Upload note:** Download from Gemini → upload directly to LinkedIn post.
+
+---
+
+## Mode B — Gemini Background Elements
+
+<!-- Present only if visual_mode includes B -->
+
+> These prompts generate clean backgrounds/textures with NO text — use as layers in Canva.
+
+**Background 1:**
+{{mode_b_prompt_1}}
+
+**Background 2:**
+{{mode_b_prompt_2}}
+
+**Background 3 (optional):**
+{{mode_b_prompt_3}}
+
+### Canva Build Guide
+
+| Field | Details |
+|-------|---------|
+| Template type | {{exact_canva_search_term}} |
+| Dimensions | {{WxH}} |
+| Slide/frame count | {{N}} |
+| Color palette | {{hex_codes}} |
+| Font pairing | {{heading_font}} + {{body_font}} |
+
+**Layout per slide/frame:**
+{{layout_description}}
+
+**Where to place Gemini background images:**
+{{image_placement_instructions}}
+
+**Style-specific execution notes:**
+{{notes_for_chosen_image_style}}
+
+---
+
+## Mode C — LLM Research Pack
+
+<!-- Always present — works with NotebookLM, ChatGPT, Gemini, or any LLM -->
 
 > Copy-paste ready. Use with NotebookLM, ChatGPT, Gemini, or any LLM.
 
@@ -130,41 +187,3 @@ canva_included: {{yes|no}}
 **Layout:** Portrait 1080×1350px — 40px margins — 24px block spacing — left-aligned body, centered headline
 
 **Export:** PNG at 2x resolution, sRGB
-
----
-
-## Gemini Image Prompts
-
-**Image 1:**
-{{detailed_prompt_1}}
-
-**Image 2:**
-{{detailed_prompt_2}}
-
-**Image 3 (optional):**
-{{detailed_prompt_3}}
-
-**Style consistency note:** {{note_about_keeping_consistent_style}}
-
----
-
-## Canva Build Guide
-
-<!-- This section is only present if canva_included: yes -->
-
-| Field | Details |
-|-------|---------|
-| Template type | {{exact Canva search term}} |
-| Dimensions | {{WxH}} |
-| Slide/frame count | {{N}} |
-| Color palette | {{hex codes}} |
-| Font pairing | {{heading_font}} + {{body_font}} |
-
-**Layout per slide/frame:**
-{{layout_description}}
-
-**Where to place Gemini images:**
-{{image_placement_instructions}}
-
-**Style-specific execution notes:**
-{{notes_for_chosen_image_style}}

@@ -72,18 +72,25 @@ Format rules:
 
 ---
 
-## Step 4.5 — Ask Canva Preference (MANDATORY)
+## Step 4.5 — Ask Visual Mode (MANDATORY)
 
-Before generating visuals, ask the user:
+Before generating visuals, ask:
 
-> "Do you want Canva execution notes for this post? (yes / no)"
+> **"What do you need for this post's visual? Pick one or more:"**
+>
+> **A)** Ready-to-upload — Gemini generates the complete image WITH text. Download and post directly to LinkedIn.
+>
+> **B)** Gemini elements + Canva — Gemini generates clean backgrounds only (no text). You build the final image in Canva.
+>
+> **C)** NotebookLM pack — Research prompts + slide deck structure + infographic blueprint.
+>
+> **Pick any combination: A, B, C, A+B, A+C, B+C, A+B+C**
 
 **Rules:**
-- If user says **"yes"** → include full Canva build guide in output and saved file
-- If user says **"no"** → skip Canva section entirely from output and saved file
-- If user gives **no answer / skips** → default to **"yes"**
-- Save the user's answer to `config/strategy.md` under `canva_preference: yes/no`
-- On future posts, use the saved preference as default (but always ask so user can override)
+- Accept any combination
+- If no answer → default to **B+C**
+- Save selection to `config/strategy.md` as `visual_mode`
+- Pass the selection to `agents/visual-generator.md`
 
 ---
 
@@ -141,12 +148,16 @@ Present in one response:
 
 1. **The LinkedIn Post** (formatted, ready to copy)
 2. **Strategy Brief** summary
-3. **LLM Research Pack** (all 3 items — always included, no exceptions)
+3. **Mode A — Ready-to-Upload Gemini Prompts** ← only if A selected
+   - 2-3 complete image prompts WITH text rendered in image
+   - Upload note: download from Gemini → upload directly to LinkedIn
+4. **Mode B — Gemini Backgrounds + Canva Guide** ← only if B selected
+   - 2-3 background-only prompts (no text)
+   - Full Canva build guide
+5. **Mode C — LLM Research Pack** ← only if C selected
    - Search Query (fully detailed)
    - Slide Deck Prompt (fully detailed)
    - Infographic Prompt (fully detailed)
-4. **Gemini Image Prompts** (2-3 detailed prompts)
-5. **Canva Build Guide** ← only if canva_preference = yes
 6. **Post Score** with breakdown (X/50)
 7. Note: "Files saved to `content/YYYY-MM/DD-topic-slug/`"
 8. Reminder: "Fill `performance.md` after publishing with your metrics at 1d, 7d, 30d"
