@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# User-generated content (created by the skill at runtime)
+config/
+content/
+analytics/
+
+# Claude Code local settings
+.claude/
+
+# Original skill zip (not needed in repo)
+*.skill
