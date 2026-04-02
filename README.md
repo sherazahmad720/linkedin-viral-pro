@@ -7,14 +7,21 @@ An [Agent Skill](https://agentskills.io) that turns any AI coding assistant into
 ## Install
 
 ```bash
-# Via npx skills CLI (recommended)
+# Via npx skills CLI (recommended — picks your agent automatically)
 npx skills add sherazahmad720/linkedin-viral-pro
 
-# Or manually — clone into your project
-git clone https://github.com/sherazahmad720/linkedin-viral-pro.git .claude/skills/linkedin-viral-pro
+# Specify your agent directly (no interactive prompt)
+npx skills add sherazahmad720/linkedin-viral-pro -a claude-code    # Claude Code
+npx skills add sherazahmad720/linkedin-viral-pro -a cursor         # Cursor
+npx skills add sherazahmad720/linkedin-viral-pro -a gemini-cli     # Gemini CLI
+npx skills add sherazahmad720/linkedin-viral-pro -a copilot        # GitHub Copilot
+
+# Or manually — copy into your project
+git clone https://github.com/sherazahmad720/linkedin-viral-pro.git /tmp/lv
+cp -r /tmp/lv/skills/linkedin-viral-pro .claude/skills/linkedin-viral-pro
 
 # Or install globally (all projects)
-git clone https://github.com/sherazahmad720/linkedin-viral-pro.git ~/.claude/skills/linkedin-viral-pro
+cp -r /tmp/lv/skills/linkedin-viral-pro ~/.claude/skills/linkedin-viral-pro
 ```
 
 ## Compatible With
@@ -153,30 +160,34 @@ For each post, you get:
 ## File Structure
 
 ```
-linkedin-viral-pro/
-├── SKILL.md                              # Orchestrator
-├── agents/
-│   ├── post-writer.md                    # Full post pipeline
-│   ├── content-calendar.md               # Monthly planning
-│   ├── post-analyzer.md                  # Post scoring
-│   ├── visual-generator.md               # Visual prompts
-│   ├── performance-analyzer.md           # Performance analysis
-│   └── trend-scout.md                    # Trending topic search
-├── references/
-│   ├── viral-frameworks.md               # 17 post formulas
-│   ├── hook-library.md                   # 90+ hooks
-│   ├── algorithm-intelligence.md         # LinkedIn algorithm
-│   ├── cta-arsenal.md                    # 45 CTAs
-│   ├── notebooklm-prompts.md             # NotebookLM guide
-│   ├── gemini-image-prompts.md           # Gemini prompts
-│   └── canva-visual-guide.md             # Canva guide
-└── templates/
-    ├── post.md                           # Post template
-    ├── prompts.md                        # Visual prompts template
-    ├── performance.md                    # Performance tracking
-    ├── strategy-brief.md                 # Strategy template
-    ├── calendar.md                       # Calendar template
-    └── user-profile.md                   # User profile template
+linkedin-viral-pro/                       # GitHub repo root
+├── README.md
+├── LICENSE
+└── skills/
+    └── linkedin-viral-pro/               # The actual skill (installed by npx skills)
+        ├── SKILL.md                      # Orchestrator
+        ├── agents/
+        │   ├── post-writer.md            # Full post pipeline
+        │   ├── content-calendar.md       # Monthly planning
+        │   ├── post-analyzer.md          # Post scoring
+        │   ├── visual-generator.md       # Visual prompts
+        │   ├── performance-analyzer.md   # Performance analysis
+        │   └── trend-scout.md            # Trending topic search
+        ├── references/
+        │   ├── viral-frameworks.md       # 17 post formulas
+        │   ├── hook-library.md           # 90+ hooks
+        │   ├── algorithm-intelligence.md # LinkedIn algorithm
+        │   ├── cta-arsenal.md            # 45 CTAs
+        │   ├── notebooklm-prompts.md     # NotebookLM guide
+        │   ├── gemini-image-prompts.md   # Gemini prompts
+        │   └── canva-visual-guide.md     # Canva guide
+        └── templates/
+            ├── post.md                   # Post template
+            ├── prompts.md                # Visual prompts template
+            ├── performance.md            # Performance tracking
+            ├── strategy-brief.md         # Strategy template
+            ├── calendar.md               # Calendar template
+            └── user-profile.md           # User profile template
 ```
 
 ## Requirements
