@@ -6,38 +6,27 @@ An [Agent Skill](https://agentskills.io) that turns any AI coding assistant into
 
 ## Install
 
-Always specify your tool with `-a` — otherwise it installs to `.agents/skills/` which most tools don't scan:
+**One-line install** (auto-detects your AI tool):
 
 ```bash
-# Claude Code
-npx skills add sherazahmad720/linkedin-viral-pro -a claude-code
-
-# Gemini CLI
-npx skills add sherazahmad720/linkedin-viral-pro -a gemini-cli
-
-# Cursor
-npx skills add sherazahmad720/linkedin-viral-pro -a cursor
-
-# GitHub Copilot
-npx skills add sherazahmad720/linkedin-viral-pro -a copilot
+curl -fsSL https://raw.githubusercontent.com/sherazahmad720/linkedin-viral-pro/main/install.sh | bash
 ```
 
-**Install globally** (available in every project on your machine):
+**Or install directly for your tool:**
+
+```bash
+npx skills add sherazahmad720/linkedin-viral-pro -a claude-code   # Claude Code
+npx skills add sherazahmad720/linkedin-viral-pro -a gemini-cli    # Gemini CLI
+npx skills add sherazahmad720/linkedin-viral-pro -a cursor        # Cursor
+npx skills add sherazahmad720/linkedin-viral-pro -a copilot       # GitHub Copilot
+```
+
+> **Note:** Don't use `npx skills add` without `-a` — the interactive picker has a known bug and installs to the wrong location.
+
+**Install globally** (available in every project):
 
 ```bash
 npx skills add sherazahmad720/linkedin-viral-pro -a claude-code -g
-```
-
-**Or manually** (if you don't have npx):
-
-```bash
-git clone https://github.com/sherazahmad720/linkedin-viral-pro.git /tmp/lv
-
-# Project-level (current project only)
-cp -r /tmp/lv/skills/linkedin-viral-pro .claude/skills/linkedin-viral-pro
-
-# Global (all projects)
-cp -r /tmp/lv/skills/linkedin-viral-pro ~/.claude/skills/linkedin-viral-pro
 ```
 
 ## Compatible With
